@@ -14,3 +14,5 @@ function getUsers(db = connection) {
 function getUser(id, db = connection) {
   return db('users').where('id', id).first()
 }
+
+//https://dbdiagram.io/d/647451e67764f72fcf02dd27
