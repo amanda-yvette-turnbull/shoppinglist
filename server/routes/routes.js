@@ -4,8 +4,14 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
   const recipes = await db.getRecipes()
-  const data = { recipes: recipes }
-  res.render('home', data)
+  res.render('home', { recipes: recipes })
+})
+
+router.get('/recipes/:id', async (req, res) => {
+  const id = await req.params
+  const recipe = await db.getRecipe(id)
+  console.log(id)
+  res.render('recipe', { recipe: recipe })
 })
 
 module.exports = router
