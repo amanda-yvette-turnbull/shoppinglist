@@ -5,7 +5,6 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   const recipes = await db.getRecipes()
   const data = { recipes: recipes }
-  console.log(data)
   res.render('home', data)
 })
 

@@ -1,8 +1,10 @@
 <h1>Recipes</h1>
-<div>
+<div class="container">
   {{#each recipes}}
-    <img class="img circle" src="images{{image}}" alt="{{name}}"/>
+  <div class="one-recipe">
+    <img class="img-cirlce" src="images{{image}}" alt="{{name}}"/>
     <p>{{name}}</p>
+  </div>
   {{/each}}
 </div>
 

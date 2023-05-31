@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(145, 155, 153);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img-cirlce{
+  border-radius: 25%;
+  object-fit: cover;
+  height: 25vw;
+  width: 25vw;
+}
+
+.one-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
