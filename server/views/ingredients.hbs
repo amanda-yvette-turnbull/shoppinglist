@@ -1,0 +1,14 @@
+<div class="ingredients">
+  <div class="searchbar">
+    <form>
+      <label for="search">search</label>
+      <input type="text" id="search" name="searched-for">
+    </form>
+  </div>
+
+  <ul>
+    {{#each ingredients}}
+    <li>{{name}}</li>
+    {{/each}}
+  </ul>
+</div>
