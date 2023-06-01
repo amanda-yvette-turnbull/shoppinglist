@@ -4,6 +4,10 @@ body {
   color:rgb(40, 42, 42)
 }
 
+img {
+  width: 40vw;
+  margin: 2rem;
+}
 .searchbar {
   margin-left: 85vw;
   padding-top: 0.5rem;
@@ -31,6 +35,7 @@ img:hover {
 
 .recipes {
   background-color: rgb(145, 155, 153);
+  border-radius: 15px;
 }
 
 .recipes-box{
@@ -41,7 +46,8 @@ img:hover {
 
 .ingredients{
   background-color: rgb(145, 155, 153);
-  height: 85vh
+  height: 85vh;
+  border-radius: 15px;
 }
 
 .img-cirlce{
@@ -71,8 +77,8 @@ img:hover {
   margin-top: 0%;
   text-align: center;
   padding-top: 0.5rem;
-  border-top-right-radius: 100%;
-  border-top-left-radius: 100%;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
 }
 
 #nav1 {
@@ -89,5 +95,11 @@ img:hover {
 
 .shoppinglist{
   background-color: rgb(145, 155, 153);
-  height: 85vh
+  height: 85vh;
+  border-radius: 15px;
+}
+
+.rec-container {
+  display: flex;
+
 }

@@ -5,15 +5,15 @@ const router = express.Router()
 //recipe routes
 router.get('/recipes', async (req, res) => {
   const recipes = await db.getRecipes()
-  //const elem = document.getElementById('nav1')
   res.render('recipes', { recipes: recipes })
-  // elem.style.color = 'red'
 })
+
 router.get('/recipes/:id', async (req, res) => {
   const idNum = req.params.id
   const recipe = await db.getRecipe(idNum)
-  console.log(idNum)
-  res.render('recipe', { recipe: recipe })
+  // recipe.ingredients = await db.getIngredientsByRecipe(idNum)
+  console.log(recipe)
+  res.render('recipe', recipe)
 })
 
 //ingredient routes
