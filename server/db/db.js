@@ -12,7 +12,7 @@ function getRecipes(db = connection) {
 }
 
 function getRecipe(id, db = connection) {
-  return db('recipes').where('id', id).first()
+  return db('recipes').select().where('id', id).first()
 }
 
 // function getUser(id, db = connection) {

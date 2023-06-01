@@ -8,9 +8,9 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/recipes/:id', async (req, res) => {
-  const id = await req.params
-  const recipe = await db.getRecipe(id)
-  console.log(id)
+  const idNum = req.params
+  const recipe = await db.getRecipe(idNum)
+  console.log(idNum)
   res.render('recipe', { recipe: recipe })
 })
 

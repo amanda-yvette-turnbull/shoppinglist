@@ -1,8 +1,8 @@
-<h1>Recipes</h1>
 <div class="container">
   {{#each recipes}}
   <div class="one-recipe">
-    <img class="img-cirlce" src="images{{image}}" alt="{{name}}"/>
+    <a href="/recipes/{{id}}">
+    <img class="img-cirlce" src="images{{image}}" alt="{{name}}"/></a>
     <p><a href="/recipes/{{id}}">{{name}}</a></p>
   </div>
   {{/each}}
