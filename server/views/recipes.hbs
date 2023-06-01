@@ -1,10 +1,18 @@
 <div class="recipes">
-  {{#each recipes}}
-  <div class="one-recipe">
-    <a href="/recipes/{{id}}">
-    <img class="img-cirlce" src="images{{image}}" alt="{{name}}"/></a>
-    <p><a href="/recipes/{{id}}">{{name}}</a></p>
+  <div class="searchbar">
+    <form>
+      <label for="search">search</label>
+      <input type="text" id="search" name="searched-for">
+    </form>
   </div>
+  <div class="recipes-box">
+  {{#each recipes}}
+    <div class="one-recipe">
+      <a href="/recipes/{{id}}">
+      <img class="img-cirlce" src="images{{image}}" alt="{{name}}"/></a>
+      <p><a href="/recipes/{{id}}">{{name}}</a></p>
+    </div>
   {{/each}}
+  </div>
 </div>
 

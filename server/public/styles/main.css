@@ -31,6 +31,9 @@ img:hover {
 
 .recipes {
   background-color: rgb(145, 155, 153);
+}
+
+.recipes-box{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -84,3 +87,7 @@ img:hover {
   background-color: rgb(129, 139, 137);
 }
 
+.shoppinglist{
+  background-color: rgb(145, 155, 153);
+  height: 85vh
+}
