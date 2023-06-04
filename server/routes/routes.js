@@ -11,8 +11,7 @@ router.get('/recipes', async (req, res) => {
 router.get('/recipes/:id', async (req, res) => {
   const idNum = req.params.id
   const recipe = await db.getRecipe(idNum)
-  // recipe.ingredients = await db.getIngredientsByRecipe(idNum)
-  console.log(recipe)
+  recipe.ingredients = await db.getIngredientsByRecipe(idNum)
   res.render('recipe', recipe)
 })
 
@@ -20,6 +19,13 @@ router.get('/recipes/:id', async (req, res) => {
 router.get('/ingredients', async (req, res) => {
   const ingredients = await db.getIngredients()
   res.render('ingredients', { ingredients: ingredients })
+})
+
+router.get('/ingredients/:id', async (req, res) => {
+  const idNum = req.params.id
+  const ingredient = await db.getIngredient(idNum)
+  ingredient.recipe = await db.getRecipesByIngredient(idNum)
+  res.render('ingredient')
 })
 
 //shoppinglist route

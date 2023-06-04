@@ -6,7 +6,9 @@ module.exports = {
   getRecipes,
   getRecipe,
   getIngredients,
+  getIngredient,
   getIngredientsByRecipe,
+  getRecipesByIngredient,
 }
 
 //Recipies
@@ -23,6 +25,7 @@ function getIngredientsByRecipe(id, db = connection) {
     .join('recipes_ingredients', 'recipes.id', 'recipes_ingredients.recipe_id')
     .join('ingredients', 'recipes_ingredients.ingredient_id', 'ingredients.id')
     .select('recipes.name AS recipe_name', '*')
+    .where('recipe_id', id)
 }
 
 //Ingredients
@@ -30,7 +33,20 @@ function getIngredients(db = connection) {
   return db('ingredients').select()
 }
 
-// function getIngredient() {}
+function getIngredient(id, db = connection) {
+  return db('ingredients').where('id', id)
+}
+
+function getRecipesByIngredient(db = connection) {
+  return db('ingredients')
+    .join(
+      'recipes_ingredients',
+      'ingredients.id',
+      'recipes_ingredients.ingredients_id'
+    )
+    .join('recipes', 'recipes_ingredients.recipes_id', 'recipes.id')
+    .select('ingredients.name AS ingredients_name', '*')
+}
 
 //Shoppinglist
 // function getAllRecipies() {}
