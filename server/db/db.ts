@@ -1,26 +1,16 @@
 import connection from './connection'
-
 const db = connection
 
-module.exports = {
-  getRecipes,
-  getRecipe,
-  getIngredients,
-  getIngredient,
-  getIngredientsByRecipe,
-  getRecipesByIngredient,
-}
-
-//Recipies
-function getRecipes() {
+//* Recipes
+export function getRecipes() {
   return db('recipes').select()
 }
 
-function getRecipe(id: number) {
+export function getRecipe(id: number) {
   return db('recipes').select().where('id', id).first()
 }
 
-function getIngredientsByRecipe(id: number) {
+export function getIngredientsByRecipe(id: number) {
   return db('recipes')
     .join('recipes_ingredients', 'recipes.id', 'recipes_ingredients.recipe_id')
     .join('ingredients', 'recipes_ingredients.ingredient_id', 'ingredients.id')
@@ -28,16 +18,16 @@ function getIngredientsByRecipe(id: number) {
     .where('recipe_id', id)
 }
 
-//Ingredients
-function getIngredients() {
+//* Ingredients
+export function getIngredients() {
   return db('ingredients').select()
 }
 
-function getIngredient(id: number) {
+export function getIngredient(id: number) {
   return db('ingredients').where('id', id)
 }
 
-function getRecipesByIngredient() {
+export function getRecipesByIngredient() {
   return db('ingredients')
     .join(
       'recipes_ingredients',
@@ -48,8 +38,8 @@ function getRecipesByIngredient() {
     .select('ingredients.name AS ingredients_name', '*')
 }
 
-//Shoppinglist
-// function getAllRecipies() {}
+//TODO Shoppinglist
+// export function getAllRecipies() {}
 
-//db diagram
-//https://dbdiagram.io/d/647451e67764f72fcf02dd27
+//? DB diagram
+//? https://dbdiagram.io/d/647451e67764f72fcf02dd27
