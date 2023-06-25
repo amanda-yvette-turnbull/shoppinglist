@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('../db/db')
 const router = express.Router()
 
-//recipe routes
+//*recipe routes
 router.get('/recipes', async (req, res) => {
   const recipes = await db.getRecipes()
   res.render('recipes', { recipes: recipes })
@@ -15,7 +15,7 @@ router.get('/recipes/:id', async (req, res) => {
   res.render('recipe', recipe)
 })
 
-//ingredient routes
+//*ingredient routes
 router.get('/ingredients', async (req, res) => {
   const ingredients = await db.getIngredients()
   res.render('ingredients', { ingredients: ingredients })
@@ -28,10 +28,8 @@ router.get('/ingredients/:id', async (req, res) => {
   res.render('ingredient')
 })
 
-//shoppinglist route
+//*shoppinglist route
 router.get('/shoppinglist', async (req, res) => {
   res.render('shoppinglist')
 })
 module.exports = router
-
-//<img class="img-circle" src="{{image}}" alt="{{name}}">

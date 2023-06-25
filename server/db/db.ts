@@ -1,6 +1,6 @@
-const environment = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[environment]
-const connection = require('knex')(config)
+import connection from './connection'
+
+const db = connection
 
 module.exports = {
   getRecipes,
@@ -12,15 +12,15 @@ module.exports = {
 }
 
 //Recipies
-function getRecipes(db = connection) {
+function getRecipes() {
   return db('recipes').select()
 }
 
-function getRecipe(id, db = connection) {
+function getRecipe(id: number) {
   return db('recipes').select().where('id', id).first()
 }
 
-function getIngredientsByRecipe(id, db = connection) {
+function getIngredientsByRecipe(id: number) {
   return db('recipes')
     .join('recipes_ingredients', 'recipes.id', 'recipes_ingredients.recipe_id')
     .join('ingredients', 'recipes_ingredients.ingredient_id', 'ingredients.id')
@@ -29,15 +29,15 @@ function getIngredientsByRecipe(id, db = connection) {
 }
 
 //Ingredients
-function getIngredients(db = connection) {
+function getIngredients() {
   return db('ingredients').select()
 }
 
-function getIngredient(id, db = connection) {
+function getIngredient(id: number) {
   return db('ingredients').where('id', id)
 }
 
-function getRecipesByIngredient(db = connection) {
+function getRecipesByIngredient() {
   return db('ingredients')
     .join(
       'recipes_ingredients',
