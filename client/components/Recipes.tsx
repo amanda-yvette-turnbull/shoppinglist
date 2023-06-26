@@ -1,9 +1,7 @@
-import { useAppSelector, useAppDispatch } from '../hooks/hook'
+import { useAppSelector } from '../hooks/hook'
 import { Recipe as RecipeModel } from '../../models/Recipes'
-import Recipe from './Recipe'
 
 function Recipes() {
-  const dispatch = useAppDispatch()
   const recipes = useAppSelector((state) => state.recipes) as RecipeModel[]
 
   return (
@@ -16,15 +14,21 @@ function Recipes() {
       </div>
       <div className="recipes-box">
         {recipes.map((recipe) => {
-          return <Recipe key={recipe} props={recipe} />
+          return (
+            <div className="one-recipe" key={recipe.id}>
+              <a href={`/recipes/${recipe.id}`}>
+                <img
+                  className="img-cirlce"
+                  src={`images${recipe.image}`}
+                  alt={recipe.name}
+                />
+              </a>
+              <p>
+                <a href={`/recipes/${recipe.id}`}>{recipe.name}</a>
+              </p>
+            </div>
+          )
         })}
-        {/* {{#each recipes}}
-        <div className="one-recipe">
-          <a href="/recipes/{{id}}">
-          <img className="img-cirlce" src="images{{image}}" alt="{{name}}"/></a>
-          <p><a href="/recipes/{{id}}">{{name}}</a></p>
-        </div>
-      {{/each}} */}
       </div>
     </div>
   )

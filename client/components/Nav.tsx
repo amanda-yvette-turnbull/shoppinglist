@@ -1,6 +1,6 @@
 function Nav() {
   return (
-    <nav>
+    <>
       <div className="navbar">
         <div className="nav" id="nav1">
           <a href="/recipes">
@@ -18,7 +18,7 @@ function Nav() {
           </a>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
 

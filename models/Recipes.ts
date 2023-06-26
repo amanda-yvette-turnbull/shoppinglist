@@ -4,3 +4,5 @@ export interface Recipe {
   image: string
   instructions: string
 }
+
+export type Action = { type: 'SET_RECIPES'; payload: Recipe[] }

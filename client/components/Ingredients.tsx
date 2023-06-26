@@ -1,8 +1,7 @@
-import { useAppSelector, useAppDispatch } from '../hooks/hook'
+import { useAppSelector } from '../hooks/hook'
 import { Ingredient } from '../../models/Ingredients'
 
 function Ingredients() {
-  const dispatch = useAppDispatch()
   const ingredients = useAppSelector(
     (state) => state.ingredients
   ) as Ingredient[]

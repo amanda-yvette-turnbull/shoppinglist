@@ -1,16 +1,18 @@
 // import { useAppSelector, useAppDispatch } from '../hooks/hook'
-import { Recipe } from '../../models/Recipes'
+import { Recipe as RecipeModel } from '../../models/Recipes'
 
-function Recipe(props: Recipe) {
-  // const dispatch = useAppDispatch()
+interface Props {
+  recipe: RecipeModel
+}
 
+function Recipe({ recipe }: Props) {
   return (
     <div className="rec-container">
-      {/* <div>
-        <img src="/images{{image}}" alt="{{name}}" />
-      </div> */}
       <div>
-        <h1 className="rec-labels">{props.name}</h1>
+        <img src={`/images${recipe.image}`} alt="{{name}}" />
+      </div>
+      <div>
+        <h1 className="rec-labels">{recipe.name}</h1>
         <h2>Ingredients:</h2>
         {/* <ul>
           {{#each ingredients}}

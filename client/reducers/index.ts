@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-
-//! import moviesReducer from './movies'
+import ingredientsReducer from './ingredients'
+import recipesReducer from './recipes'
 
 export default combineReducers({
-  //!movies: moviesReducer,
+  ingredients: ingredientsReducer,
+  recipes: recipesReducer,
 })
