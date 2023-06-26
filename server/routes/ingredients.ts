@@ -2,18 +2,27 @@ import express from 'express'
 const router = express.Router()
 import * as db from '../db/db'
 
-//*ingredient routes
+//* GET /api/v1/ingredients
 router.get('/', async (req, res) => {
-  const ingredients = await db.getIngredients()
-  res.json(ingredients)
+  try {
+    const ingredients = await db.getIngredients()
+    res.json(ingredients)
+  } catch (err) {
+    console.log('db routes err:', err)
+  }
 })
 
-//TODO fix this
-// router.get('/:id', async (req, res) => {
-//   const idNum = +req.params.id
-//   const ingredient = await db.getIngredient(idNum)
-//   //! ingredient.recipe = await db.getRecipesByIngredient(idNum)
-//   res.json(ingredient)
-// })
+//TODO fix db func so this works
+//* GET /api/v1/ingredients/:id
+router.get('/:id', async (req, res) => {
+  const idNum = +req.params.id
+  try {
+    const ingredient = await db.getIngredient(idNum)
+    //!ingredient.recipe = await db.getRecipesByIngredient(idNum)
+    res.json(ingredient)
+  } catch (err) {
+    console.log('db routes err:', err)
+  }
+})
 
 export default router

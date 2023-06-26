@@ -24,7 +24,7 @@ export function getIngredients() {
 }
 
 export function getIngredient(id: number) {
-  return db('ingredients').where('id', id)
+  return db('ingredients').where({ id })
 }
 
 export function getRecipesByIngredient() {
