@@ -1,9 +1,9 @@
 // import List from './List'
 // import Header from './Header'
-import { useAppSelector } from '../hooks/hook'
+import { useAppSelector, useAppDispatch } from '../hooks/hook'
 
 function Home() {
-  //   const darkMode = useAppSelector((store) => store.darkMode)
+  const dispatch = useAppDispatch()
 
   return (
     <>

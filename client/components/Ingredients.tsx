@@ -1,17 +1,29 @@
-function Ingredients(){
-  return(
+import { useAppSelector, useAppDispatch } from '../hooks/hook'
+import { Ingredient } from '../../models/Ingredients'
+
+function Ingredients() {
+  const dispatch = useAppDispatch()
+  const ingredients = useAppSelector(
+    (state) => state.ingredients
+  ) as Ingredient[]
+
+  return (
     <div className="ingredients">
       <div className="searchbar">
         <form>
           <label htmlFor="search">search</label>
-          <input type="text" id="search" name="searched-for"/>
+          <input type="text" id="search" name="searched-for" />
         </form>
       </div>
 
       <ul>
-        {{#each ingredients}}
-        <li><a href="ingredients/{{id}}">{{name}}</a></li>
-        {{/each}}
+        {ingredients.map((ingredient) => {
+          return (
+            <li key={ingredient.id}>
+              <a href={`ingredients/${ingredient.id}`}>{ingredient.name}</a>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
