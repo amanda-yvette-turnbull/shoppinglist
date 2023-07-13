@@ -81,17 +81,14 @@ img:hover {
   border-top-left-radius: 30px;
 }
 
-#nav1 {
+#selected {
   background-color: rgb(145, 155, 153);
 }
 
-#nav2 {
+#not-selected {
   background-color: rgb(129, 139, 137);
 }
 
-#nav3 {
-  background-color: rgb(129, 139, 137);
-}
 
 .shoppinglist{
   background-color: rgb(145, 155, 153);
