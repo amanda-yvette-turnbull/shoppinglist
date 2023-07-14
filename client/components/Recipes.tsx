@@ -1,5 +1,6 @@
 import { useAppSelector } from '../hooks/hook'
 import { Recipe as RecipeModel } from '../../models/Recipes'
+import { Link } from 'react-router-dom'
 
 function Recipes() {
   const recipes = useAppSelector((state) => state.recipes) as RecipeModel[]
@@ -15,18 +16,16 @@ function Recipes() {
       <div className="recipes-box">
         {recipes.map((recipe) => {
           return (
-            <div className="one-recipe" key={recipe.id}>
-              <a href={`/recipes/${recipe.id}`}>
+            <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+              <div className="one-recipe">
                 <img
                   className="img-cirlce"
                   src={`images${recipe.image}`}
                   alt={recipe.name}
                 />
-              </a>
-              <p>
-                <a href={`/recipes/${recipe.id}`}>{recipe.name}</a>
-              </p>
-            </div>
+                <p>{recipe.name}</p>
+              </div>
+            </Link>
           )
         })}
       </div>

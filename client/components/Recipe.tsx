@@ -1,24 +1,37 @@
-// import { useAppSelector, useAppDispatch } from '../hooks/hook'
+import { useParams } from 'react-router-dom'
 import { Recipe as RecipeModel } from '../../models/Recipes'
+import { fetchRecipe } from '../apis/recipesApi'
+import { useEffect, useState } from 'react'
 
-interface Props {
-  recipe: RecipeModel
-}
+function Recipe() {
+  const [recipe, setRecipe] = useState({} as RecipeModel)
+  const { id } = useParams()
 
-function Recipe({ recipe }: Props) {
+  useEffect(() => {
+    const getRecipe = async () => {
+      const recipeData = await fetchRecipe(Number(id))
+      setRecipe(recipeData)
+    }
+    getRecipe()
+  }, [id])
+
   return (
     <div className="rec-container">
       <div>
-        <img src={`/images${recipe.image}`} alt="{{name}}" />
+        <img src={`/images${recipe.image}`} alt={`${recipe.name}`} />
       </div>
       <div>
         <h1 className="rec-labels">{recipe.name}</h1>
         <h2>Ingredients:</h2>
-        {/* <ul>
-          {{#each ingredients}}
-            <li>{{name}} ({{amount}})</li>
-          {{/each}}
-        </ul> */}
+        <ul>
+          {recipe.ingredients?.map((ingredient) => {
+            return (
+              <li key={ingredient.id}>
+                {`${ingredient.amount} ${ingredient.name}`}
+              </li>
+            )
+          })}
+        </ul>
         <h2>Instructions:</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

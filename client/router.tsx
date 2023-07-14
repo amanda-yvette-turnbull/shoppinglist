@@ -8,6 +8,7 @@ import {
 import App from './components/App'
 import Home from './components/Home'
 import Recipes from './components/Recipes'
+import Recipe from './components/Recipe'
 import Ingredients from './components/Ingredients'
 import Shoppinglist from './components/Shoppinglist'
 
@@ -15,9 +16,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="/recipes" element={<Recipes />} />
-      <Route path="/ingredients" element={<Ingredients />} />
-      <Route path="/shoppinglist" element={<Shoppinglist />} />
+      <Route path="recipes" element={<Recipes />} />
+      <Route path="recipes/:id" element={<Recipe />} />
+      <Route path="ingredients" element={<Ingredients />} />
+      <Route path="shoppinglist" element={<Shoppinglist />} />
     </Route>
   )
 )
