@@ -1,5 +1,6 @@
 import { useAppSelector } from '../hooks/hook'
 import { Ingredient } from '../../models/Ingredients'
+import { Link } from 'react-router-dom'
 
 function Ingredients() {
   const ingredients = useAppSelector(
@@ -19,7 +20,7 @@ function Ingredients() {
         {ingredients.map((ingredient) => {
           return (
             <li key={ingredient.id}>
-              <a href={`ingredients/${ingredient.id}`}>{ingredient.name}</a>
+              <Link to={`ingredients/${ingredient.id}`}>{ingredient.name}</Link>
             </li>
           )
         })}

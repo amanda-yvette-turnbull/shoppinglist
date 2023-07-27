@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Recipe as RecipeModel } from '../../models/Recipes'
 import { fetchRecipe } from '../apis/recipesApi'
 import { useEffect, useState } from 'react'
@@ -26,9 +26,12 @@ function Recipe() {
         <ul>
           {recipe.ingredients?.map((ingredient) => {
             return (
-              <li key={ingredient.id}>
-                {`${ingredient.amount} ${ingredient.name}`}
-              </li>
+              <Link
+                key={ingredient.ingredient_id}
+                to={`{ingredients/${ingredient.ingredient_id}`}
+              >
+                <li>{`${ingredient.amount} ${ingredient.name}`}</li>
+              </Link>
             )
           })}
         </ul>

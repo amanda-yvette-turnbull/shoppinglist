@@ -20,7 +20,7 @@ function Recipes() {
               <div className="one-recipe">
                 <img
                   className="img-cirlce"
-                  src={`images${recipe.image}`}
+                  src={`/images${recipe.image}`}
                   alt={recipe.name}
                 />
                 <p>{recipe.name}</p>
