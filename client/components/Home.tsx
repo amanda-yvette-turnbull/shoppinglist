@@ -1,7 +1,7 @@
 function Home() {
   return (
     <>
-      <p>helo</p>
+      <p>Login Page Here</p>
       {/* Login Page */}
     </>
   )

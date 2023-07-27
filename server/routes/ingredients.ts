@@ -12,13 +12,12 @@ router.get('/', async (req, res) => {
   }
 })
 
-//TODO fix db func so this works
 //* GET /api/v1/ingredients/:id
 router.get('/:id', async (req, res) => {
   const idNum = +req.params.id
   try {
-    const ingredient = await db.getIngredient(idNum)
-    //!ingredient.recipe = await db.getRecipesByIngredient(idNum)
+    const ingredient = await db.getIngredient(idNum).first()
+    ingredient.recipes = await db.getRecipesByIngredient(idNum)
     res.json(ingredient)
   } catch (err) {
     console.log('db routes err:', err)
