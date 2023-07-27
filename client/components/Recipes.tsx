@@ -6,7 +6,7 @@ function Recipes() {
   const recipes = useAppSelector((state) => state.recipes) as RecipeModel[]
 
   return (
-    <div className="recipes">
+    <div className="page">
       <div className="searchbar">
         <form>
           <label htmlFor="search">search</label>

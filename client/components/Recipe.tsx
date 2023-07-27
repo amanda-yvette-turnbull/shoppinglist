@@ -16,7 +16,7 @@ function Recipe() {
   }, [id])
 
   return (
-    <div className="rec-container">
+    <div className="rec-container page">
       <div>
         <img src={`/images${recipe.image}`} alt={`${recipe.name}`} />
       </div>
@@ -25,13 +25,13 @@ function Recipe() {
         <h2>Ingredients:</h2>
         <ul>
           {recipe.ingredients?.map((ingredient) => {
+            console.log(ingredient.ingredient_id)
             return (
-              <Link
-                key={ingredient.ingredient_id}
-                to={`{ingredients/${ingredient.ingredient_id}`}
-              >
-                <li>{`${ingredient.amount} ${ingredient.name}`}</li>
-              </Link>
+              <li key={ingredient.ingredient_id}>
+                <Link
+                  to={`/ingredients/${ingredient.ingredient_id}`}
+                >{`${ingredient.amount} ${ingredient.name}`}</Link>
+              </li>
             )
           })}
         </ul>

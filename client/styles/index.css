@@ -33,21 +33,16 @@ img:hover {
   opacity: 100%;
 }
 
-.recipes {
+.page {
   background-color: rgb(145, 155, 153);
   border-radius: 15px;
+  /* height: 85vh; */
 }
 
 .recipes-box{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.ingredients{
-  background-color: rgb(145, 155, 153);
-  height: 85vh;
-  border-radius: 15px;
 }
 
 .img-cirlce{
@@ -89,14 +84,10 @@ img:hover {
   background-color: rgb(129, 139, 137);
 }
 
-
-.shoppinglist{
-  background-color: rgb(145, 155, 153);
-  height: 85vh;
-  border-radius: 15px;
-}
-
 .rec-container {
   display: flex;
+}
 
+.ingredient-title{
+  margin-top: 0;
 }

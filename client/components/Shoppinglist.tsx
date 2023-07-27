@@ -1,6 +1,6 @@
 function Shoppinglist() {
   return (
-    <div className="shoppinglist">
+    <div className="page">
       <div className="searchbar">
         <form>
           <label htmlFor="search">search</label>

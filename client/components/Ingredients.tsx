@@ -8,7 +8,7 @@ function Ingredients() {
   ) as Ingredient[]
 
   return (
-    <div className="ingredients">
+    <div className="page">
       <div className="searchbar">
         <form>
           <label htmlFor="search">search</label>
@@ -20,7 +20,9 @@ function Ingredients() {
         {ingredients.map((ingredient) => {
           return (
             <li key={ingredient.id}>
-              <Link to={`ingredients/${ingredient.id}`}>{ingredient.name}</Link>
+              <Link to={`/ingredients/${ingredient.id}`}>
+                {ingredient.name}
+              </Link>
             </li>
           )
         })}

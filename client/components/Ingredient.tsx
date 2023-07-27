@@ -18,8 +18,8 @@ function Ingredient() {
   }, [id])
 
   return (
-    <div>
-      <h1>{`Recipes that use ${ingredient.name}`}</h1>
+    <div className="page">
+      <h1 className="ingredient-title">{`Recipes that use ${ingredient.name}`}</h1>
       {ingredient.recipes?.map((recipe) => {
         return (
           <Link to={`/recipes/${recipe.recipe_id}`} key={recipe.recipe_id}>
