@@ -3,6 +3,7 @@ import { Recipe as RecipeModel } from '../../models/Recipes'
 import { fetchRecipe } from '../apis/recipesApi'
 import { useEffect, useState } from 'react'
 
+//Todo refactor classnames for this page
 function Recipe() {
   const [recipe, setRecipe] = useState({} as RecipeModel)
   const { id } = useParams()

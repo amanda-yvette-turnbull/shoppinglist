@@ -23,9 +23,9 @@ function Ingredient() {
       {ingredient.recipes?.map((recipe) => {
         return (
           <Link to={`/recipes/${recipe.recipe_id}`} key={recipe.recipe_id}>
-            <div className="one-recipe">
+            <div className="single-recipe">
               <img
-                className="img-cirlce"
+                className="recipe-img"
                 src={`/images${recipe.image}`}
                 alt={recipe.recipe_name}
               />

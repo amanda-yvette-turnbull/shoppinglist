@@ -9,7 +9,7 @@ function Ingredients() {
 
   return (
     <div className="page">
-      <div className="searchbar">
+      <div className="search-bar">
         <form>
           <label htmlFor="search">search</label>
           <input type="text" id="search" name="searched-for" />
