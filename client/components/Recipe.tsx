@@ -2,9 +2,13 @@ import { Link, useParams } from 'react-router-dom'
 import { Recipe as RecipeModel } from '../../models/Recipes'
 import { fetchRecipe } from '../apis/recipesApi'
 import { useEffect, useState } from 'react'
+import { useAppDispatch } from '../hooks/hook'
+import { setPage } from '../actions/page'
 
 //Todo refactor classnames for this page
 function Recipe() {
+  const dispatch = useAppDispatch()
+
   const [recipe, setRecipe] = useState({} as RecipeModel)
   const { id } = useParams()
 
@@ -30,6 +34,7 @@ function Recipe() {
               <li key={ingredient.ingredient_id}>
                 <Link
                   to={`/ingredients/${ingredient.ingredient_id}`}
+                  onClick={() => dispatch(setPage('ingredients'))}
                 >{`${ingredient.amount} ${ingredient.name}`}</Link>
               </li>
             )

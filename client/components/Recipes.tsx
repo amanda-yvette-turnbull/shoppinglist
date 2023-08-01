@@ -39,7 +39,7 @@ function Recipes() {
                   src={`/images${recipe.image}`}
                   alt={recipe.name}
                 />
-                <div className="recipe-name">{recipe.name}</div>
+                <p className="recipe-name">{recipe.name}</p>
               </div>
             </Link>
           ))

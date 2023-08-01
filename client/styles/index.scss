@@ -65,23 +65,37 @@ img:hover {
 }
 
 .single-recipe {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   .recipe-img {
-    opacity: 75%;
-    border-radius: 15px;
+    border-radius: 10px;
     object-fit: cover;
     height: 25vw;
     width: 25vw;
+    position: relative;
+    margin: 0.5rem;
   }
-  // .recipe-name {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  // }
+  .recipe-name {
+    font-size: 1.5rem;
+    opacity: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
+
+.single-recipe:hover {
+  .recipe-name {
+    opacity: 1;
+  }
+  .recipe-img {
+    opacity: 0.5;
+  }
+}
+
 
 .rec-container {
   display: flex;
