@@ -26,7 +26,6 @@ function Recipe() {
         <h2>Ingredients:</h2>
         <ul>
           {recipe.ingredients?.map((ingredient) => {
-            console.log(ingredient.ingredient_id)
             return (
               <li key={ingredient.ingredient_id}>
                 <Link

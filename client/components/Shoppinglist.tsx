@@ -1,15 +1,11 @@
+import Search from './Search'
+
 function Shoppinglist() {
   return (
     <div className="page">
-      <div className="search-bar">
-        <form>
-          <label htmlFor="search">search</label>
-          <input type="text" id="search" name="searched-for" />
-        </form>
-      </div>
-
+      <Search />
       <p>⚠️under construction⚠️</p>
-      <img src="../../images/" alt="gif" />
+      <img src="../../images/gif.gif" alt="gif" />
     </div>
   )
 }
