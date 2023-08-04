@@ -1,4 +1,3 @@
-import Ingredients from '../../client/components/Ingredients'
 import connection from './connection'
 const db = connection
 
@@ -37,8 +36,18 @@ export async function getRecipesByIngredient(id: number) {
   return all_recipes.filter((ingredient) => ingredient.ingredient_id == id)
 }
 
-//TODO Shoppinglist
-// export function getAllRecipes() {}
+//* Shopping List
+export function getShoppingList() {
+  return db('shopping_list').select()
+}
+
+export function deleteShoppingList() {
+  return db('shopping_list').delete()
+}
+
+export function addShoppingList(data: string[]) {
+  return db('shopping_list').insert(data).returning('*')
+}
 
 //? DB diagram
 //? https://dbdiagram.io/d/647451e67764f72fcf02dd27
