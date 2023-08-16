@@ -18,7 +18,6 @@ export function getIngredients(): ThunkAction {
   return async (dispatch) => {
     try {
       const ingredients = await api.fetchIngredients()
-      console.log(ingredients)
       dispatch(setIngredients(ingredients))
     } catch (err) {
       console.log('action err:', err)

@@ -18,6 +18,14 @@ export function getIngredientsByRecipe(id: number) {
     .where('recipe_id', id)
 }
 
+//? Refact the select to this v
+// .select(
+//   'ingredients.id AS id',
+//   'ingredients.name as name',
+//   'amount',
+//   'other'
+// )
+
 //* Ingredients
 export function getIngredients() {
   return db('ingredients').select()
@@ -45,9 +53,9 @@ export function deleteShoppingList() {
   return db('shopping_list').delete()
 }
 
-export function addShoppingList(data: string[]) {
-  return db('shopping_list').insert(data).returning('*')
+export async function addShoppingList(recipe_id: number) {
+  console.log(recipe_id)
+  return db('shopping_list').insert({ recipe_id }).returning('*')
 }
-
 //? DB diagram
 //? https://dbdiagram.io/d/647451e67764f72fcf02dd27

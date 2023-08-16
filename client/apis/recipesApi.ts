@@ -13,3 +13,4 @@ export async function fetchRecipe(id: number) {
 }
 
 //TODO make post patch del
+//TODO add try & catch

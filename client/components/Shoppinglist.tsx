@@ -1,8 +1,11 @@
+import { useAppSelector } from '../hooks/hook'
+import ListDisplay from './ListDisplay'
+
 function Shoppinglist() {
+  // const shoppingList = useAppSelector((state) => state.shoppingList)
   return (
     <div className="page">
-      <p>⚠️under construction⚠️</p>
-      <img src="../../images/gif.gif" alt="gif" />
+      <p>shopping</p>
     </div>
   )
 }

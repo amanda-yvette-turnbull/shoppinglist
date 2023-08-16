@@ -13,3 +13,4 @@ export async function fetchIngredient(id: number) {
 }
 
 //TODO make post patch del
+//TODO add try & catch

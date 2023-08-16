@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const data = req.body
-  const shoppingList = await db.addShoppingList(data)
+  await data.forEach(async (recipe_id: number) => db.addShoppingList(recipe_id))
+  const shoppingList = await db.getShoppingList()
   res.json(shoppingList)
 })
 

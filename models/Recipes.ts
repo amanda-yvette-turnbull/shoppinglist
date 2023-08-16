@@ -1,5 +1,3 @@
-import Ingredients from '../client/components/Ingredients'
-
 export interface Recipe {
   id: number
   name: string
