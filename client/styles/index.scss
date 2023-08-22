@@ -87,6 +87,28 @@ img:hover {
   }
 }
 
+.sl-page {
+  display: flex;
+  .sl-recipes {
+    width: 50vw
+  }
+  .sl-list {
+    width: 20vw
+  }
+  .paper {
+    background-color: rgb(218, 198, 172);
+    height: 70vh;
+    padding-top: 0.5rem;
+  }
+  li {
+    list-style-type: "- ";
+    font-size: x-large;
+    line-height: 150%;
+  }
+}
+
+
+
 .single-recipe:hover {
   .recipe-name {
     opacity: 1;

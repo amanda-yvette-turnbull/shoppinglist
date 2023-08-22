@@ -4,6 +4,7 @@ import { useAppDispatch } from '../hooks/hook'
 
 import { getRecipes } from '../actions/recipes'
 import { getIngredients } from '../actions/ingredients'
+import { getShoppingList } from '../actions/shoppingList'
 
 //* Components
 import Nav from './Nav'
@@ -14,6 +15,7 @@ function App() {
   useEffect(() => {
     dispatch(getIngredients())
     dispatch(getRecipes())
+    dispatch(getShoppingList())
   }, [dispatch])
 
   return (

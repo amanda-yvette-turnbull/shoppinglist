@@ -11,9 +11,9 @@ export async function fetchShoppingList() {
   }
 }
 
-export async function addShoppingList(recipies: number[]) {
+export async function addShoppingList(recipes: number[]) {
   try {
-    const res = await request.post(serverUrl)
+    const res = await request.post(serverUrl).send(recipes)
     return res.body
   } catch (err) {
     return err
@@ -21,6 +21,9 @@ export async function addShoppingList(recipies: number[]) {
 }
 
 export async function removeShoppingList() {
-  const res = await request.get(serverUrl)
-  return res.body
+  try {
+    await request.delete(serverUrl)
+  } catch (err) {
+    return err
+  }
 }

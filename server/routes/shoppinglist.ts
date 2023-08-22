@@ -4,7 +4,14 @@ import * as db from '../db/db'
 
 router.get('/', async (req, res) => {
   const shoppingList = await db.getShoppingList()
-  res.json(shoppingList)
+  const wholeShoppingList = []
+
+  for (const num of shoppingList) {
+    const recipe = await db.getRecipe(num.recipe_id)
+    recipe.ingredients = await db.getIngredientsByRecipe(num.recipe_id)
+    wholeShoppingList.push(recipe)
+  }
+  res.json(wholeShoppingList)
 })
 
 router.post('/', async (req, res) => {
