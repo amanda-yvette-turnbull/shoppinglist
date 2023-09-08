@@ -1,4 +1,4 @@
-import * as api from '../apis/shoppinglistApi'
+import * as api from '../apis/shoppingListApi'
 import { ThunkAction } from '../store'
 
 import { ShoppingList } from '../../models/ShoppingList'

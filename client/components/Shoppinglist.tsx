@@ -14,35 +14,39 @@ function Shoppinglist() {
   )
 
   return (
-    <div className="page sl-page">
-      <div className="sl-list">
-        <p>Shopping List:</p>
-        <div className="paper">
-          <ul>
-            {list.map((recipe) => (
-              <li key="">{recipe}</li>
-            ))}
-          </ul>
+    <div className="page">
+      <button>+</button>
+      <button>-</button>
+      <div className="sl-page">
+        <div className="sl-list">
+          <p>Shopping List:</p>
+          <div className="paper">
+            <ul>
+              {list.map((recipe) => (
+                <li key="">{recipe}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="sl-recipes">
-        <p>This Weeks Recipes:</p>
-        {shoppingList && shoppingList.length > 0 ? (
-          shoppingList.map((recipe) => (
-            <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
-              <div className="single-recipe">
-                <img
-                  className="recipe-img"
-                  src={`/images${recipe.image}`}
-                  alt={recipe.name}
-                />
-                <p className="recipe-name">{recipe.name}</p>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>Shopping list is empty</p>
-        )}
+        <div className="sl-recipes">
+          <p>This Weeks Recipes:</p>
+          {shoppingList && shoppingList.length > 0 ? (
+            shoppingList.map((recipe) => (
+              <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+                <div className="single-recipe">
+                  <img
+                    className="recipe-img"
+                    src={`/images${recipe.image}`}
+                    alt={recipe.name}
+                  />
+                  <p className="recipe-name">{recipe.name}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Shopping list is empty</p>
+          )}
+        </div>
       </div>
     </div>
   )
