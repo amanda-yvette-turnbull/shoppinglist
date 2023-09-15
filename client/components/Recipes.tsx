@@ -3,13 +3,11 @@ import { Recipe as RecipeModel } from '../../models/Recipes'
 import { Link } from 'react-router-dom'
 import { ChangeEvent, useState } from 'react'
 
-//Todo make search-bar work
 function Recipes() {
   const recipes = useAppSelector((state) => state.recipes) as RecipeModel[]
 
   //* Search input
   const [results, setResults] = useState(recipes)
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     const res = recipes.filter((recipe) => recipe.name.includes(e.target.value))
