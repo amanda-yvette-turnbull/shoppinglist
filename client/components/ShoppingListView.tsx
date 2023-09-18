@@ -6,7 +6,7 @@ function ShoppingListView({ setEdit }) {
   //*This function needs to show all the recipes of the week
   const shoppingList = useAppSelector((state) => state.shoppingList as Recipe[])
   const list = [] as string[]
-  shoppingList.forEach((recipe) =>
+  shoppingList.map((recipe) =>
     recipe.ingredients?.forEach((ingredient) => {
       if (!list.includes(ingredient.name)) {
         list.push(ingredient.name)
@@ -15,7 +15,6 @@ function ShoppingListView({ setEdit }) {
   )
 
   const handleClick = (e) => {
-    e.preventDefault()
     setEdit('show')
   }
 

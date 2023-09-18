@@ -1,9 +1,12 @@
-import { useAppSelector } from '../hooks/hook'
+import { useAppSelector, useAppDispatch } from '../hooks/hook'
 import { ChangeEvent, useState } from 'react'
 
+import { newShoppingList as shoppingListThunk } from '../actions/shoppingList'
 import { Recipe } from '../../models/Recipes'
 
 function ShoppingListEdit({ setEdit }) {
+  const dispatch = useAppDispatch()
+
   const shoppingList = useAppSelector((state) => state.shoppingList as Recipe[])
   const [newShoppingList, setNewShoppingList] = useState({
     list: shoppingList,
@@ -19,9 +22,7 @@ function ShoppingListEdit({ setEdit }) {
   const [results, setResults] = useState(recipes)
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
-    const res = shoppingList.filter((recipe) =>
-      recipe.name.includes(e.target.value)
-    )
+    const res = recipes.filter((recipe) => recipe.name.includes(e.target.value))
     setResults(res)
   }
 
@@ -33,7 +34,9 @@ function ShoppingListEdit({ setEdit }) {
         list: [...newShoppingList.list, recipe],
         idList: [...newShoppingList.idList, recipe.id],
       })
-      console.log('added:', recipe.id)
+    } else {
+      console.log('already added')
+      //! possibly add a pop up saying that this is already added to your cart
     }
   }
 
@@ -47,8 +50,7 @@ function ShoppingListEdit({ setEdit }) {
 
   //* saving shopping list
   const handleClick = () => {
-    //* add thunk action of adding shopping list
-
+    dispatch(shoppingListThunk(newShoppingList.idList))
     setEdit('hide')
   }
 
