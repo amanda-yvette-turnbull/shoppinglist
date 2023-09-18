@@ -72,8 +72,8 @@ img:hover {
   .recipe-img {
     border-radius: 10px;
     object-fit: cover;
-    height: 25vw;
-    width: 25vw;
+    height: 15vw; //height was 25 
+    width: 15vw;
     position: relative;
     margin: 0.5rem;
   }
@@ -96,12 +96,10 @@ img:hover {
     width: 20vw
   }
   .paper {
-    background-color: rgb(218, 198, 172);
     height: 70vh;
     padding-top: 0.5rem;
   }
   li {
-    list-style-type: "- ";
     font-size: x-large;
     line-height: 150%;
   }
