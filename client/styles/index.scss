@@ -1,7 +1,6 @@
 body {
   background-color: rgb(114, 122, 120);
-  font-family: 'Pangolin', monospace;
-  color:rgb(40, 42, 42)
+  font-family: 'Sofia Sans', sans-serif;  color:rgb(40, 42, 42)
 }
 
 a {
@@ -17,6 +16,7 @@ a {
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
 }
+
 
 .search-bar {
   margin-left: 85vw;
@@ -37,6 +37,7 @@ img:hover {
   opacity: 100%;
 }
 
+//*NAV 
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -87,22 +88,32 @@ img:hover {
   }
 }
 
+//* SHOPPING LIST 
 .sl-page {
   display: flex;
   .sl-recipes {
-    width: 50vw
+    width: 50vw;
+    height: 70vh;
+    padding-left: 3vw;
+    border-left-style: solid;
+    border-color: rgb(129, 139, 137);
+    border-width: 0.6vw;
   }
   .sl-list {
-    width: 20vw
-  }
-  .paper {
-    height: 70vh;
-    padding-top: 0.5rem;
+    width: 20vw;
   }
   li {
     font-size: x-large;
     line-height: 150%;
   }
+}
+
+.sl-button {
+  background-color: rgb(114, 122, 120);
+  border: none;
+  border-radius: 14px;
+  margin-left: 90vw;
+  padding: 8px 16px;
 }
 
 

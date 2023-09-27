@@ -19,38 +19,40 @@ function ShoppingListView({ setEdit }) {
   }
 
   return (
-    <div className="sl-page">
-      <button onClick={handleClick}>Edit</button>
-      <div className="sl-list">
-        <p>Shopping List:</p>
-        <div className="paper">
+    <>
+      <button className="sl-button" onClick={handleClick}>
+        Edit
+      </button>
+      <div className="sl-page">
+        <div className="sl-list">
+          <p>Shopping List:</p>
           <ul>
             {list.map((recipe) => (
               <li key="">{recipe}</li>
             ))}
           </ul>
         </div>
+        <div className="sl-recipes">
+          <p>This Weeks Recipes:</p>
+          {shoppingList && shoppingList.length > 0 ? (
+            shoppingList.map((recipe) => (
+              <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+                <div className="single-recipe">
+                  <img
+                    className="recipe-img"
+                    src={`/images${recipe.image}`}
+                    alt={recipe.name}
+                  />
+                  <p className="recipe-name">{recipe.name}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Shopping list is empty</p>
+          )}
+        </div>
       </div>
-      <div className="sl-recipes">
-        <p>This Weeks Recipes:</p>
-        {shoppingList && shoppingList.length > 0 ? (
-          shoppingList.map((recipe) => (
-            <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
-              <div className="single-recipe">
-                <img
-                  className="recipe-img"
-                  src={`/images${recipe.image}`}
-                  alt={recipe.name}
-                />
-                <p className="recipe-name">{recipe.name}</p>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>Shopping list is empty</p>
-        )}
-      </div>
-    </div>
+    </>
   )
 }
 
